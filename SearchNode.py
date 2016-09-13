@@ -8,6 +8,8 @@
         self.g_cost=g_cost
         self.x = x
         self.y = y
+        self.is_start = False
+        self.is_goal = False
 
     def to_string(self):
         return blocked if not self.is_traversable else free

@@ -13,3 +13,22 @@ class SearchGrid(object):
             #catches out of bounds
             return -1
         return self.nodes[y * width + x]
+
+    def config(self, x, y, start=None, goal=None, traversable=None, g_cost=None, h_cost=None):
+        #need to use kwargs when I get time
+        index = self.get_node(x, y)
+        if index < 0:
+            return False
+        node = self.nodes[index]
+        if start is False or start is True:
+            node.is_start = start
+        if goal is False or goal is True:
+            node.is_goal = goal
+        if traversable is False or traversable is False:
+            node.is_traversable = traversable
+        if g_cost > 0:
+            node.g_cost = g_cost
+        if node.h_cost > 0:
+            node.h_cost = node.h_cost
+        self.nodes[index] = node
+        return True
