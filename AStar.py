@@ -23,23 +23,30 @@ def seenbefore(node):
 	return False
 
 grid
+
 #user input for goal - goalnode
-##user input for start- startnode
+#user input for start- startnode
+
 def search():
 	open_queue.add(startnode(#set f value)) #f value =g(S)+h(S)
 	if open_queue.empty():
 		print "No solution!"
 		return
 	else:
-		n=open_queue.get()
+		#grab the first element of the priority queue, which will be the one with the least f
+		n = open_queue.get()
 		if n.equals(goalnode): 
 			print "Found it!"
-			return n.lineage #list of parent, then parent's parent, all the way back to start
+			#return list of parent, then parent's parent, all the way back to start
+			return n.lineage 
 		else:
-			for successor in n.neighbors: #list of n's traversible neighbors
+			#list of n's traversible neighbors
+			for successor in n.neighbors: 
 				f = successor.g + successor.h
-				if ((successor) not in closed_queue or seenbefore(sucessor) (successor in closed_queue and f) ???
-				If n’ not seen before or n’ previously expanded with f(n’) > f’ or n’ currently in Open with f(n’) > f’
+				### If n’ not seen before or n’ previously expanded with f(n’) > f’ or n’ currently in Open with f(n’) > f’
+				if ((successor not in closed_queue) or (seenbefore(sucessor) && seenbefore(successor).f < successor.f) or (successor in open_queue && open_queue.get(successor).f < successor.f):
+					#add each to the priority queue
+
 
 
 
