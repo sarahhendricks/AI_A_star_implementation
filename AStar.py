@@ -24,8 +24,7 @@ def seenbefore(node):
 
 grid
 
-#user input for goal - goalnode
-#user input for start- startnode
+
 
 def search():
 	open_queue.add(startnode(#set f value)) #f value =g(S)+h(S)
@@ -41,12 +40,18 @@ def search():
 			return n.lineage 
 		else:
 			#list of n's traversible neighbors
-			for successor in n.neighbors: 
-				f = successor.g + successor.h
+			for successor in n.neighbors:
+				successor.g = n.g + #distance between n & successor
+				successor.h = #distance from goal to successor 
+				successor.f = successor.g + successor.h
 				### If n’ not seen before or n’ previously expanded with f(n’) > f’ or n’ currently in Open with f(n’) > f’
 				if ((successor not in closed_queue) or (seenbefore(sucessor) && seenbefore(successor).f < successor.f) or (successor in open_queue && open_queue.get(successor).f < successor.f):
-					#add each to the priority queue
+					open_queue.add(successor)
+		closed_queue.add(n)
 
-
+#user input for goal - goalnode
+#user input for start- startnode
+while !open_queue.empty():
+	search()
 
 
